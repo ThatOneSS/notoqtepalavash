@@ -1,0 +1,3 @@
+python-decouple==3.0
+requirements.txt
+DEFAULT_THROTTLE_RATES
