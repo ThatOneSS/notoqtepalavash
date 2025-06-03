@@ -107,7 +107,7 @@ import dj_database_url
 import os
 
 DATABASES = {
-    'default': dj_database_url.config(default=config('DB_URL'), conn_max_age=600)
+    'default': dj_database_url.config(default=os.environ.get('DB_URL'), conn_max_age=600)
 }
 
 
@@ -158,3 +158,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
