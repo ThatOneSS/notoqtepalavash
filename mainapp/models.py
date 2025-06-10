@@ -3,7 +3,7 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
-    image= models.ImageField(upload_to='category_images/',blank=True , null=True)
+    image= models.URLField(blank=True , null=True)
     status= models.BooleanField(default=True)
 
     def __str__(self):
@@ -14,7 +14,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100, unique=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     description = models.TextField()
-    image = models.ImageField(upload_to='product_images/',blank=True , null=True)
+    image= models.URLField(blank=True , null=True)
 
     status = models.BooleanField(default=True)
 
@@ -24,8 +24,9 @@ class Product(models.Model):
 class Branch(models.Model):
     name = models.CharField(max_length=100, unique=True)
     working_hours = models.CharField(max_length=100, default='9:00 - 22:00 PM')
-    image = models.ImageField(upload_to='branch_images/',default='branch_images/oqtepa_lavash.jpg',blank=True , null=True)
-    address=models.URLField(max_length=200,)
+    image= models.URLField(blank=True , null=True)
+    address=models.URLField()
+
     status = models.BooleanField(default=True)
 
     def __str__(self):
